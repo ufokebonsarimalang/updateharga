@@ -205,7 +205,16 @@ justify-content:center;
 align-items:center;
 padding:20px;
 }
-
+#logoutPopup{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.5);
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:9998;
+}
 .popup{
 width:100%;
 max-width:450px;
@@ -424,7 +433,41 @@ gap:10px;
     </div>
 
 </div>
+<!-- ================= LOGOUT ================= -->
 
+<div id="logoutPopup">
+
+    <div class="popup">
+
+        <h3>🚪 Keluar Aplikasi</h3>
+
+        <p style="text-align:center;color:#666;margin-bottom:25px;">
+            Apakah Anda yakin ingin keluar dari aplikasi?
+        </p>
+
+        <div style="display:flex;gap:10px;">
+
+            <button
+                class="btn-batal"
+                onclick="closeLogout()">
+
+                Batal
+
+            </button>
+
+            <button
+                class="btn-login"
+                onclick="doLogout()">
+
+                Ya, Keluar
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 <div id="toast"></div>
 
 <script>
@@ -501,15 +544,24 @@ function login(){
 
 function logout(){
 
-    if(!confirm("Keluar dari aplikasi?")) return;
+
+
+    document.getElementById("logoutPopup").style.display="flex";
+
+}
+    function closeLogout(){
+
+    document.getElementById("logoutPopup").style.display="none";
+
+}
+
+function doLogout(){
 
     localStorage.removeItem("brand");
 
     location.reload();
 
 }
-
-
 /* ============================
    LOAD PRODUK
 ============================ */
