@@ -96,6 +96,17 @@ body{background:#eef3f8!important;font-family:Arial,sans-serif}
 .label{color:#777;margin-top:10px}
 .harga{font-size:28px;color:#0a7a36;font-weight:700}
 .btn-ubah{width:auto;padding:12px 18px;border-radius:10px}
+  .header{
+    background:#2563eb;
+    color:white;
+    padding:20px;
+    border-radius:18px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
 </style>
 </head>
 
@@ -103,15 +114,53 @@ body{background:#eef3f8!important;font-family:Arial,sans-serif}
 
 <!-- LOGIN -->
 <div id="loginBox">
-  <div class="card">
-    <h2>LOGIN SALES</h2>
-    <input id="pin" placeholder="Masukkan PIN">
-    <button class="btn-login" onclick="login()">LOGIN</button>
-  </div>
-</div>
 
+    <div class="card">
+
+        <div style="font-size:60px;margin-bottom:15px;">🏪</div>
+
+        <h2>UPDATE HARGA</h2>
+
+        <p style="color:#777;margin-bottom:25px;">
+            Silakan login menggunakan PIN Sales
+        </p>
+
+        <input
+            id="pin"
+            type="password"
+            placeholder="Masukkan PIN">
+
+        <button
+            class="btn-login"
+            onclick="login()">
+            LOGIN
+        </button>
+
+    </div>
+
+</div>
 <!-- PRODUK -->
-<div id="produk"></div>
+<div id="produk">
+
+    <div class="header">
+
+        <div>
+
+            <h2 style="margin:0;">
+                📋 Update Harga Produk
+            </h2>
+
+            <small style="opacity:.8;">
+                Pilih produk yang akan diubah
+            </small>
+
+        </div>
+
+    </div>
+
+    <div id="listProduk"></div>
+
+</div>
 
 <!-- POPUP EDIT -->
 <div id="formEdit">
@@ -181,7 +230,7 @@ function loadProduk() {
       `;
     });
 
-    document.getElementById("produk").innerHTML = html;
+    dodocument.getElementById("listProduk").innerHTML = html;cument.getElementById("produk").innerHTML = html;
   });
 }
 
